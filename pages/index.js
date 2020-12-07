@@ -22,7 +22,7 @@ export default function IndexPage({ movie, movieSrc }) {
 
   const handleButtonSearch = async () => {
     try {
-      fetch(`http://www.omdbapi.com/?s=${keyword.trim()}&apikey=49d13b81`)
+      fetch(`https://www.omdbapi.com/?s=${keyword.trim()}&apikey=49d13b81`)
         .then(res => res.json())
         .then(res => {
           setShow(true);

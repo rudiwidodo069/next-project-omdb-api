@@ -1,5 +1,4 @@
 export default function Detail({ detail }) {
-    console.log(detail);
     return (
         <div className="bg-gray-800 px-3 container-detail">
             <div className="grid grid-cols-2 gap-3 box-movie-info">
