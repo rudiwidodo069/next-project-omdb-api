@@ -4,20 +4,36 @@
 
 /* Start purging... */
 @tailwind components;
-/* Stop purging. */
-
-html,
-body {
-  @apply bg-gray-50 dark:bg-gray-900;
-}
-
-/* Write your own custom component styles here */
-.btn-blue {
-  @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
-}
 
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
 
 /* Your own custom utilities */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* xl  > 1000px*/
+@media (min-width: 1000px) {
+  .search-mobile {
+    display: none;
+  }
+}
+
+/* lg = 1000px */
+@media (max-width: 1000px) {
+  .box-search {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .search {
+    display: none;
+  }
+
+  .search-icon {
+    display: block;
+  }
+}

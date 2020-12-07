@@ -1,0 +1,5 @@
+### get home api
+GET http://www.omdbapi.com/?i=tt3896198&apikey=49d13b81
+
+### get naruto movie search
+GET http://www.omdbapi.com/?s=naruto&apikey=49d13b81
