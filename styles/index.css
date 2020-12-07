@@ -53,12 +53,12 @@
     min-width: 35%;
   }
 }
-
+/* 
 @media (min-width: 768px) {
   .container-detail {
     height: 100vh;
   }
-}
+} */
 
 /* md < 768px */
 @media (max-width: 768px) {
