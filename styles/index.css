@@ -16,6 +16,12 @@
   box-sizing: border-box;
 }
 
+.card-search-movie {
+  height: 75vh;
+  min-width: 25%;
+  overflow-y: auto;
+}
+
 /* xl  > 1000px*/
 @media (min-width: 1000px) {
   .search-mobile {
@@ -41,6 +47,17 @@
   .box-movie-src {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* search movie */
+  .card-search-movie {
+    min-width: 35%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-detail {
+    height: 100vh;
+  }
 }
 
 /* md < 768px */
@@ -53,6 +70,11 @@
   /* movie src  */
   .box-movie-src {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* search movie */
+  .card-search-movie {
+    min-width: 45%;
   }
 }
 
@@ -83,11 +105,21 @@
   .card-movie-src {
     min-width: 65%;
   }
+
+  /* search movie */
+  .card-search-movie {
+    min-width: 65%;
+  }
 }
 
 /* xs < 365px */
 @media (max-width: 365px) {
   .card-movie-src {
+    min-width: 85%;
+  }
+
+  /* search movie */
+  .card-search-movie {
     min-width: 85%;
   }
 }
