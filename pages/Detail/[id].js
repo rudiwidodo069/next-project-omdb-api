@@ -3,7 +3,7 @@ export default function Detail({ detail }) {
     return (
         <div className="bg-gray-800 px-3 container-detail">
             <div className="grid grid-cols-2 gap-3 box-movie-info">
-                <div className="bg-white p-2 rounded shadow-md box-img-movie-info">
+                <div className="bg-white p-2 rounded shadow-md box-img-movie-info flex items-center">
                     <img
                         className="img-movie-info"
                         src={detail.Poster}
