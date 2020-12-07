@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import MovieInfo from '../components/MovieInfo';
+import MovieSrc from '../components/MovieSrc';
 
-export default function IndexPage({ movie }) {
+export default function IndexPage({ movie, movieSrc }) {
 
   // state
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [movieInfo, setMovieInfo] = React.useState(movie);
+  const [mvSrc, setMvSrc] = React.useState(movieSrc.Search);
 
   const handleSearchOpen = () => {
     searchOpen ? setSearchOpen(false) : setSearchOpen(true);
@@ -27,7 +29,7 @@ export default function IndexPage({ movie }) {
       <nav>
         <div className="p-3 bg-gray-900 flex justify-between items-center fixed top-0 left-0 right-0 box-search">
 
-          <div className="text-white text-3xl font-semibold uppercase">
+          <div className="text-white text-3xl font-semibold uppercase nav-brand">
             <h1>next-js | omdb-api</h1>
           </div>
 
@@ -37,7 +39,7 @@ export default function IndexPage({ movie }) {
               placeholder="movie search"
               type="text" />
             <button
-              className="p-7 bg-green-400 uppercase text-white text-2xl font-semibold">search</button>
+              className="p-4 bg-green-400 uppercase text-white text-2xl font-semibold">search</button>
           </div>
 
           <div
@@ -53,7 +55,7 @@ export default function IndexPage({ movie }) {
               placeholder="movie search"
               type="text" />
             <button
-              className="p-7 bg-green-400 uppercase text-white text-2xl font-semibold">search</button>
+              className="p-4 bg-green-400 uppercase text-white text-2xl font-semibold">search</button>
           </div>}
           {/* end mobile search */}
 
@@ -62,8 +64,9 @@ export default function IndexPage({ movie }) {
       {/* end navbar */}
 
       {/* container */}
-      <div className="bg-gray-800 px-3 pt-28">
+      <div className="bg-gray-800 px-3 pt-32 pb-10">
         {movieInfo && <MemoMovieInfo movieInfo={movieInfo} />}
+        {mvSrc && <MemoMovieSrc movieSrc={mvSrc} />}
       </div>
       {/* end container */}
     </div>
@@ -72,6 +75,7 @@ export default function IndexPage({ movie }) {
 
 
 const MemoMovieInfo = React.memo(MovieInfo);
+const MemoMovieSrc = React.memo(MovieSrc);
 
 export const getServerSideProps = async () => {
   const movie = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=49d13b81')
@@ -79,9 +83,15 @@ export const getServerSideProps = async () => {
     .then(res => res)
     .catch(err => console.error('error fetch api movie : ', err));
 
+  const movieSrc = await fetch('http://www.omdbapi.com/?s=naruto&apikey=49d13b81')
+    .then(res => res.json())
+    .then(res => res)
+    .catch(err => console.error('error fetch api movie src : ', err));
+
   return {
     props: {
       movie,
+      movieSrc
     }
   }
 }
