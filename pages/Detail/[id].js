@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 export default function Detail({ detail }) {
     return (
         <>
@@ -74,7 +76,7 @@ export default function Detail({ detail }) {
 }
 
 export const getServerSideProps = async ({ params }) => {
-    const movieDetail = await fetch(`http://www.omdbapi.com/?i=${params.id}&apikey=49d13b81`);
+    const movieDetail = await fetch(`https://www.omdbapi.com/?i=${params.id}&apikey=49d13b81`);
     const detail = await movieDetail.json();
 
     return {

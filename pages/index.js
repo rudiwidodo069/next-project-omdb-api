@@ -119,12 +119,12 @@ const MemoSearchMovie = React.memo(SearchMovie);
 const MemoError = React.memo(ErrorMsg);
 
 export const getServerSideProps = async () => {
-  const movie = await fetch('http://www.omdbapi.com/?i=tt3896198&apikey=49d13b81')
+  const movie = await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=49d13b81')
     .then(res => res.json())
     .then(res => res)
     .catch(err => console.error('error fetch api movie : ', err));
 
-  const movieSrc = await fetch('http://www.omdbapi.com/?s=naruto&apikey=49d13b81')
+  const movieSrc = await fetch('https://www.omdbapi.com/?s=naruto&apikey=49d13b81')
     .then(res => res.json())
     .then(res => res)
     .catch(err => console.error('error fetch api movie src : ', err));
